@@ -25,6 +25,12 @@ class AddTaskViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+     func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if segue.identifier == "dismissAndSave" {
+            let task = Task(title: titleField.text!, notes: notesField.text!)
+            TaskStore.sharedInstance.add(task: task)
+        }
+    }
 
     /*
     // MARK: - Navigation

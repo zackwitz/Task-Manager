@@ -56,9 +56,18 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" editable="NO" text="Placeholder" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TPB-Jm-O0g">
+                                <frame key="frameInset" minX="67" minY="109" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="TPB-Jm-O0g" firstAttribute="centerX" secondItem="svH-Pt-448" secondAttribute="centerX" id="1SJ-fM-fqx"/>
+                            <constraint firstItem="TPB-Jm-O0g" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="45" id="TTp-0B-f94"/>
                             <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="20" symbolic="YES" id="Tsc-yG-G1q"/>
                             <constraint firstItem="0XM-y9-sOw" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="jWN-iV-94e"/>
                             <constraint firstAttribute="trailing" secondItem="0XM-y9-sOw" secondAttribute="trailing" constant="20" symbolic="YES" id="tHV-ZD-HQj"/>
@@ -68,6 +77,7 @@
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
                         <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
+                        <outlet property="notesView" destination="TPB-Jm-O0g" id="vWX-AQ-x24"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
@@ -102,21 +112,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="IIg-2n-FjC" firstAttribute="top" secondItem="WMN-QN-AdW" secondAttribute="bottom" constant="45" id="02Y-Vs-Bwd"/>
                             <constraint firstItem="IIg-2n-FjC" firstAttribute="centerX" secondItem="MsW-xz-zhR" secondAttribute="centerX" id="0uL-YQ-zSL"/>
                             <constraint firstItem="WMN-QN-AdW" firstAttribute="centerX" secondItem="MsW-xz-zhR" secondAttribute="centerX" id="6aj-PZ-RN4"/>
-                            <constraint firstItem="IIg-2n-FjC" firstAttribute="centerY" secondItem="MsW-xz-zhR" secondAttribute="centerY" id="Uy3-9L-ght"/>
                             <constraint firstItem="WMN-QN-AdW" firstAttribute="top" secondItem="hdO-GO-XAG" secondAttribute="bottom" constant="150" id="ho4-Kx-dVM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Task" id="16b-j9-Mzm">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3pL-aD-Fnr">
                             <connections>
-                                <segue destination="7bK-jq-Zjz" kind="custom" customClass="DismissSegue" id="y6C-3n-O86"/>
+                                <segue destination="7bK-jq-Zjz" kind="custom" identifier="dismissAndCancel" customClass="DismissSegue" id="y6C-3n-O86"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="dcX-A9-WFS">
                             <connections>
-                                <segue destination="7bK-jq-Zjz" kind="custom" customClass="DismissSegue" id="zOT-GW-1gP"/>
+                                <segue destination="7bK-jq-Zjz" kind="custom" identifier="dismissAndSave" customClass="DismissSegue" id="zOT-GW-1gP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -152,19 +162,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" detailTextLabel="mwr-uW-aay" style="IBUITableViewCellStyleSubtitle" id="WCw-Qf-5nD">
                                 <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
                                     <frame key="frameInset" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
-                                            <frame key="frameInset" minX="15" width="345" height="43"/>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Arm-wq-HPj">
+                                            <frame key="frameInset" minX="15" minY="4" width="34" height="21"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mwr-uW-aay">
+                                            <frame key="frameInset" minX="15" minY="25" width="44" height="15"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -210,7 +227,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="y6C-3n-O86"/>
+        <segue reference="zOT-GW-1gP"/>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

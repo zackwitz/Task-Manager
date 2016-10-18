@@ -11,13 +11,13 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+    @IBOutlet weak var notesView: UITextView!
 
     func configureView() {
         // Update the user interface for the detail item.
-        if let detail = self.detailItem {
+        if let detail: Task = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.description
+                label.text = detail.title
             }
         }
     }
@@ -33,7 +33,7 @@ class DetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    var detailItem: NSDate? {
+    var detailItem: Task? {
         didSet {
             // Update the view.
             self.configureView()
