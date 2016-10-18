@@ -109,7 +109,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Task" id="16b-j9-Mzm">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3pL-aD-Fnr"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="3pL-aD-Fnr">
+                            <connections>
+                                <segue destination="7bK-jq-Zjz" kind="custom" customClass="DismissSegue" id="y6C-3n-O86"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="dcX-A9-WFS">
+                            <connections>
+                                <segue destination="7bK-jq-Zjz" kind="custom" customClass="DismissSegue" id="zOT-GW-1gP"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="notesField" destination="IIg-2n-FjC" id="Rmd-gD-i7v"/>
@@ -144,7 +153,7 @@
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="Arm-wq-HPj" style="IBUITableViewCellStyleDefault" id="WCw-Qf-5nD">
-                                <rect key="frame" x="0.0" y="86" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="22" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WCw-Qf-5nD" id="37f-cq-3Eg">
                                     <frame key="frameInset" width="375" height="43"/>
@@ -171,7 +180,7 @@
                             <outlet property="delegate" destination="7bK-jq-Zjz" id="RA6-mI-bju"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Master" id="Zdf-7t-Un8">
+                    <navigationItem key="navigationItem" title="Tasks" id="Zdf-7t-Un8">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hEh-XF-DCB">
                             <connections>
                                 <segue destination="LjN-5z-SUo" kind="presentation" identifier="showAddTask" id="h2p-Ww-9AY"/>
@@ -201,6 +210,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="y6C-3n-O86"/>
         <segue reference="6S0-TO-JiA"/>
     </inferredMetricsTieBreakers>
 </document>

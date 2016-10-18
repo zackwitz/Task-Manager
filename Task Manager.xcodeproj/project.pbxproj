@@ -17,6 +17,8 @@
 		B610EA141DB5CA3F00FC4105 /* Task_ManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610EA131DB5CA3F00FC4105 /* Task_ManagerUITests.swift */; };
 		B610EA221DB5D72900FC4105 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610EA211DB5D72900FC4105 /* AddTaskViewController.swift */; };
 		B610EA241DB5E01900FC4105 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610EA231DB5E01900FC4105 /* DismissSegue.swift */; };
+		B610EA261DB5E7AD00FC4105 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610EA251DB5E7AC00FC4105 /* Task.swift */; };
+		B610EA281DB5E80000FC4105 /* TaskStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B610EA271DB5E80000FC4105 /* TaskStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		B610EA151DB5CA3F00FC4105 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B610EA211DB5D72900FC4105 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		B610EA231DB5E01900FC4105 /* DismissSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
+		B610EA251DB5E7AC00FC4105 /* Task.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		B610EA271DB5E80000FC4105 /* TaskStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,8 @@
 				B610E9F71DB5CA3F00FC4105 /* Main.storyboard */,
 				B610EA231DB5E01900FC4105 /* DismissSegue.swift */,
 				B610EA211DB5D72900FC4105 /* AddTaskViewController.swift */,
+				B610EA251DB5E7AC00FC4105 /* Task.swift */,
+				B610EA271DB5E80000FC4105 /* TaskStore.swift */,
 				B610E9FA1DB5CA3F00FC4105 /* Assets.xcassets */,
 				B610E9FC1DB5CA3F00FC4105 /* LaunchScreen.storyboard */,
 				B610E9FF1DB5CA3F00FC4105 /* Info.plist */,
@@ -272,7 +278,9 @@
 				B610EA241DB5E01900FC4105 /* DismissSegue.swift in Sources */,
 				B610EA221DB5D72900FC4105 /* AddTaskViewController.swift in Sources */,
 				B610E9F41DB5CA3F00FC4105 /* MasterViewController.swift in Sources */,
+				B610EA261DB5E7AD00FC4105 /* Task.swift in Sources */,
 				B610E9F21DB5CA3F00FC4105 /* AppDelegate.swift in Sources */,
+				B610EA281DB5E80000FC4105 /* TaskStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
