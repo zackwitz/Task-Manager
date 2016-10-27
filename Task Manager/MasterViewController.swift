@@ -50,7 +50,14 @@ class MasterViewController: UITableViewController {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
                 let task = TaskStore.sharedInstance.get(index: indexPath.row)
-                (segue.destination as! DetailViewController).detailItem = task
+                let nav = segue.destination
+                for vc in nav.childViewControllers {
+                    if vc is DetailViewController {
+                        let detailVC = vc as! DetailViewController
+                        detailVC.detailItem = task;
+                    }
+                }
+//                (segue.destination as! DetailViewController).detailItem = task
                /* let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = task
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem

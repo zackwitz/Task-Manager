@@ -17,7 +17,7 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let detail: Task = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.title
+                label.text = detail.title + "\n" + detail.notes
             }
         }
     }
@@ -25,6 +25,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.detailDescriptionLabel.numberOfLines = 2;
         self.configureView()
     }
 
