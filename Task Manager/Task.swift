@@ -19,5 +19,13 @@ struct Task
         self.notes = notes
     }
     
+    func toString() -> String
+    {
+        var toReturn = "Title: "
+        toReturn += title
+        toReturn += "\nNotes: "
+        toReturn += notes
+        return toReturn
+    }
     
 }

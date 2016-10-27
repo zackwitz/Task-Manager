@@ -28,6 +28,7 @@ class AddTaskViewController: UIViewController {
      func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if segue.identifier == "dismissAndSave" {
             let task = Task(title: titleField.text!, notes: notesField.text!)
+            print(task.toString())
             TaskStore.sharedInstance.add(task: task)
         }
     }
