@@ -23,6 +23,15 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadTableView(notification:)), name: NSNotification.Name(rawValue: kTaskManagerTaskAddedNotification), object: nil);
+        
+    }
+    
+    func reloadTableView(notification : Notification) {
+        self.tableView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {

@@ -8,6 +8,10 @@
 
 import Foundation
 
+
+let kTaskManagerTaskAddedNotification = "com.zackhurwitz.taskmanager.addedtask";
+
+
 class TaskStore {
     class var sharedInstance: TaskStore {
         struct Static {
@@ -26,6 +30,8 @@ class TaskStore {
     
     func add(task: Task) {
         tasks.append(task)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: kTaskManagerTaskAddedNotification), object: nil);
+        
     }
     
     func replace(task: Task, atIndex index: Int) {
